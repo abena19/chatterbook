@@ -48,7 +48,7 @@ public class ChatterbookControllerTest {
     void shouldReturnUserWithGivenUsername() throws Exception {
         String testUserName = "Luis";
 
-        mockMvc.perform(get("/user/" + testUserName))                // Perform the GET request
+        mockMvc.perform(get("/user/" + testUserName))   // Perform the GET request
                 .andDo(print())                          // Print results to console
                 .andExpect(status().isOk());
 

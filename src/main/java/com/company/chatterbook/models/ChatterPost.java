@@ -1,5 +1,6 @@
 package com.company.chatterbook.models;
 
+
 public class ChatterPost {
     //create text property
     private String text;

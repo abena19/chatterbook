@@ -2,6 +2,7 @@ package com.company.chatterbook.models;
 
 import java.util.List;
 
+
 public class User {
     private String name;
     private List<ChatterPost> chatterPosts;

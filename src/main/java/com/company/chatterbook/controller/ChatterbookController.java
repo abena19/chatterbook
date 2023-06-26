@@ -1,4 +1,4 @@
-package com.company.chatterbook.controllers;
+package com.company.chatterbook.controller;
 
 import com.company.chatterbook.models.User;
 import com.company.chatterbook.models.ChatterPost;
@@ -44,14 +44,18 @@ public class ChatterbookController {
     }
 
 
-    // GET userlist
+    // route to get the list of users
+    // http method is GET
+    // uri: /users
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public List<User> chatterbookMessage() {
         return userList;
     }
 
 
-    // GET user object given username
+    // route to get the specific user's object
+    // http method is GET
+    // uri: /user/{username}
     @RequestMapping(value = "/user/{username}", method = RequestMethod.GET)
     public User getUser(@PathVariable String username) {
         Iterator<User> userIterator = userList.iterator();
@@ -65,7 +69,9 @@ public class ChatterbookController {
     }
 
 
-    // GET chatterpost objects given username
+    // route to get the list of chatterposts for the user
+    // http method is GET
+    // uri: /chatterposts/{username}/
     @RequestMapping(value = "/chatterposts/{username}", method = RequestMethod.GET)
     public List<ChatterPost> getUserChatterPosts(@PathVariable String username) {
         Iterator<User> userIterator = userList.iterator();

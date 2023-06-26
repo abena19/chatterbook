@@ -1,8 +1,5 @@
 package com.company.chatterbook.controller;
 
-import com.company.chatterbook.controllers.ChatterbookController;
-import com.company.chatterbook.models.ChatterPost;
-import com.company.chatterbook.models.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,8 +11,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
-import java.util.List;
 
 @SpringBootTest
 @AutoConfigureMockMvc

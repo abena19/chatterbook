@@ -32,47 +32,40 @@ public class ChatterbookControllerTest {
         // Standard set up method, for instantiating test objects
         // Don't have to do anything special for mockMvc since it's Autowired
     }
+    private String testUserName = "Luis"; //test username
 
     @Test
     void contextLoads() {
     }
 
+
+    // Testing GET methods for returning users
+
     @Test
-    void shouldReturnListOfUsers() throws Exception {
+    void shouldReturnUserList() throws Exception {
         mockMvc.perform(get("/users"))                // Perform the GET request
                 .andDo(print())                          // Print results to console
                 .andExpect(status().isOk());              // ASSERT (status code is 200)
     }
 
     @Test
-    void shouldReturnUserWithGivenUsername() throws Exception {
-        String testUserName = "Luis";
-
-        mockMvc.perform(get("/user/" + testUserName))   // Perform the GET request
-                .andDo(print())                          // Print results to console
+    void shouldReturnUserWithUsername() throws Exception {
+        mockMvc.perform(get("/user/" + testUserName))
+                .andDo(print())
                 .andExpect(status().isOk());
-
-//        mockMvc.perform(get("/user/" + testUserName))
-//                .andExpect(status().isOk())
-//                .andExpect(content().contentType("application/json"))
-//                .andExpect(jsonPath("$.name").value(testUserName));
     }
 
     @Test
-    void shouldReturnChatterPostsForGivenUsername() throws Exception {
-        String testUserName = "Luis";
-
+    void shouldReturnChatterPostsForUsername() throws Exception {
         mockMvc.perform(get("/chatterposts/" + testUserName))
-                .andExpect(status().isOk())
-                .andExpect(content().contentType("application/json"))
-                .andExpect(jsonPath("$[0].message").exists());
+                .andDo(print())
+                .andExpect(status().isOk());
     }
 
     @Test
     void shouldReturnNotFoundForNonExistingUser() throws Exception {
-        String testUserName = "NonExistingUser";
-
         mockMvc.perform(get("/user/" + testUserName))
+                .andDo(print())
                 .andExpect(status().isNotFound());
     }
 

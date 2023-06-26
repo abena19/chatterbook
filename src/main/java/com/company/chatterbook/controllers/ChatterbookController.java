@@ -10,11 +10,11 @@ import java.util.List;
 
 @RestController
 public class ChatterbookController {
-
-
     private List<User> userList;
 
     public ChatterbookController() {
+
+        // add pre-defined user data
         User luis = new User("Luis");
         User sue = new User("Sue");
         User timothy = new User("Timothy");
@@ -39,16 +39,19 @@ public class ChatterbookController {
         carol.setChatterPosts(Arrays.asList(new ChatterPost("Does anyone have some imodium?")));
         carl.setChatterPosts(Arrays.asList(new ChatterPost("My roommate is awful!!!!"), new ChatterPost("Anyone know a room for rent in Hyde Park?")));
 
+        // set array value
         userList = Arrays.asList(luis, sue, timothy, george, arturo, mariella, paolo, tri, jane, carol, carl);
     }
 
+
+    // GET userlist
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public List<User> chatterbookMessage() {
         return userList;
     }
 
 
-
+    // GET user object given username
     @RequestMapping(value = "/user/{username}", method = RequestMethod.GET)
     public User getUser(@PathVariable String username) {
         Iterator<User> userIterator = userList.iterator();
@@ -62,6 +65,7 @@ public class ChatterbookController {
     }
 
 
+    // GET chatterpost objects given username
     @RequestMapping(value = "/chatterposts/{username}", method = RequestMethod.GET)
     public List<ChatterPost> getUserChatterPosts(@PathVariable String username) {
         Iterator<User> userIterator = userList.iterator();

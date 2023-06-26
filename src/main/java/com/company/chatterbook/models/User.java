@@ -10,16 +10,21 @@ public class User {
         this.name = name;
     }
 
+
+    //getters and setters
+    public void setName() {
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
+
     public void setChatterPosts(List<ChatterPost> chatterPosts) {
         this.chatterPosts = chatterPosts;
     }
-
     public List<ChatterPost> getChatterPosts() {
         return chatterPosts;
     }
 
-    public String getName() {
-        return name;
-    }
 
 }
